@@ -2,6 +2,7 @@
   width: 100%;
   background-image: url("../../public/Hero/Picture.png");
   background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
   height: 700px;
   box-sizing: border-box;
