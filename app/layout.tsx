@@ -3,11 +3,10 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
 
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "700", "800"],
   variable: "--font-manrope",
   display: "swap",
 });
@@ -42,7 +41,6 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
           <div id="loader-root"></div>
-          <Footer />
         </TanStackProvider>
       </body>
     </html>
