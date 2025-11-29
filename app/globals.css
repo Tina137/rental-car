@@ -38,14 +38,20 @@ ul {
   padding: 0;
 }
 
-/* body.dark-theme {
-  --white: #000000;
-  --black: #ffffff;
-  --royal-blue: #ffffff;
-  --royal-blue-lighter: #7f7f7f;
-  --royal-blue-light: #4c4c4c;
-  --royal-blue-darker: #7a96ea;
-} */
+.button {
+  display: block;
+  font-weight: 500;
+  color: var(--white);
+  background-color: var(--button);
+  padding: 12px 0;
+  max-width: 276px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  margin: auto;
+}
+.button:hover {
+  background-color: var(--button-hover);
+}
 
 body:has(.mobile-menu.is-open) {
   overflow: hidden;
