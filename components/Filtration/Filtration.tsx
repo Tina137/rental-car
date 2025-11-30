@@ -4,7 +4,12 @@ import css from "./Filtration.module.css";
 import { MyDropdown } from "../Dropdown/Dropdown";
 import { useState } from "react";
 
-export default function Filtration({ brands }: { brands: string[] }) {
+interface FiltrationProps {
+  brands: string[];
+  onSubmit: () => void;
+}
+
+export default function Filtration({ brands, onSubmit }: FiltrationProps) {
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
 
@@ -12,9 +17,7 @@ export default function Filtration({ brands }: { brands: string[] }) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    console.log("BRAND:", brand);
-    console.log("PRICE:", price);
+    onSubmit();
   };
 
   return (
@@ -38,7 +41,24 @@ export default function Filtration({ brands }: { brands: string[] }) {
           onChange={setPrice}
         />
 
-        <button type="submit">Search</button>
+        <div className={css.inputBigContainer}>
+          <p className={css.label}>Сar mileage / km</p>
+          <div className={css.inputContainer}>
+            <div className={`${css.inputWrapper} ${css.inputWrapperLeft}`}>
+              <span className={css.prefix}>From</span>
+              <input name="min" className={css.input} type="number" min="0" />
+            </div>
+
+            <div className={`${css.inputWrapper} ${css.inputWrapperRight}`}>
+              <span className={css.prefix}>To</span>
+              <input name="max" className={css.input} type="number" min="0" />
+            </div>
+          </div>
+        </div>
+
+        <button className={`button ${css.submitButton}`} type="submit">
+          Search
+        </button>
       </form>
     </div>
   );

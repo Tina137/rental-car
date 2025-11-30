@@ -32,7 +32,9 @@ export function MyDropdown({
 
   return (
     <div className={styles.container}>
-      <p className={styles.upper}>{upperText}</p>
+      <label htmlFor={name} className={styles.upper}>
+        {upperText}
+      </label>
 
       <input type="hidden" name={name} value={value} />
 

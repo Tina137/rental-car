@@ -10,7 +10,7 @@
 }
 
 .trigger {
-  padding: 8px 14px;
+  padding: 12px 14px;
   border-radius: 12px;
   background: var(--inputs);
   cursor: pointer;
