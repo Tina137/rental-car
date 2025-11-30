@@ -1,28 +1,41 @@
 "use client";
-import { useState } from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import styles from "./Dropdown.module.css";
+import { it } from "node:test";
 
 interface MyDropdownProps {
   upperText: string;
   triggerText: string;
   itemsArr: string[];
+  name: string;
+  value: string;
+  onChange: (v: string) => void;
 }
 
 export function MyDropdown({
   upperText,
   triggerText,
   itemsArr,
+  name,
+  value,
+  onChange,
 }: MyDropdownProps) {
-  const [selected, setSelected] = useState(triggerText);
+  const selected = value || triggerText;
 
   const handleSelect = (item: string) => {
-    setSelected(item);
+    if (name == "price") {
+      onChange(`To $${item}`);
+    } else {
+      onChange(item);
+    }
   };
 
   return (
     <div className={styles.container}>
       <p className={styles.upper}>{upperText}</p>
+
+      <input type="hidden" name={name} value={value} />
+
       <DropdownMenu.Root>
         <DropdownMenu.Trigger className={styles.trigger}>
           {selected}
@@ -32,11 +45,11 @@ export function MyDropdown({
         </DropdownMenu.Trigger>
 
         <DropdownMenu.Content sideOffset={4} className={styles.content}>
-          {itemsArr.map((item, index) => (
+          {itemsArr.map((item) => (
             <DropdownMenu.Item
-              key={`${item}-${index}`}
+              key={item}
               className={`${styles.item} ${
-                selected === item ? styles.selected : ""
+                value === item ? styles.selected : ""
               }`}
               onSelect={() => handleSelect(item)}
             >

@@ -1,0 +1,9 @@
+.filterContainer {
+  margin: auto;
+  max-width: 924px;
+}
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}

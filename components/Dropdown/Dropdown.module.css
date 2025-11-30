@@ -16,9 +16,11 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
   border: none;
   font-weight: 400;
+  width: 196px;
+  box-sizing: border-box;
 }
 .arrow {
   fill: black;
